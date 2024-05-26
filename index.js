@@ -33,10 +33,10 @@ app.get('/', (req, res) => {
 // Ruta POST para manejar el envío de correos electrónicos desde un formulario
 app.post('/send-email', (req, res) => {
     // Extraer name, email y message del cuerpo de la solicitud
-    const { name, email, message } = req.body;
+    const { name, email, subject, message } = req.body;
 
     // Validar que name, email y message estén presentes en la solicitud
-    if (!name || !email || !message) {
+    if (!name || !email || !subject || !message) {
         return res.status(400).send('Todos los campos son obligatorios: name, email, message');
     }
 
@@ -58,7 +58,7 @@ app.post('/send-email', (req, res) => {
     const mailOptions = {
         from: process.env.EMAIL_USER,  // Remitente del correo (tu dirección de correo)
         to: process.env.EMAIL_USER,    // Destinatario del correo (también tu dirección de correo)
-        subject: `Mensaje de ${name}`,  // Asunto del correo
+        subject: subject,  // Asunto del correo
         text: `Nombre: ${name}\n\nCorreo: ${email}\n\nMensaje: ${message}`,  // Contenido del correo
     };
 
