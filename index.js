@@ -16,10 +16,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const validator = require('validator');
+const cors = require('cors');
 
 // inicialización de la app
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Middleware para CORS
+app.use(cors());
 
 // Middleware para parsear los cuerpos de las solicitudes HTTP
 app.use(bodyParser.urlencoded({ extended: true }));
