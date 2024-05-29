@@ -71,7 +71,7 @@ app.post('/send-email', (req, res) => {
         from: process.env.EMAIL_USER,          // Remitente del correo de confirmación
         to: email,                             // Destinatario del correo de confirmación (email del remitente del formulario)
         subject: 'Confirmación de recepción',  // Asunto del correo de confirmación
-        text: `Hola ${name},\n\nHemos recibido tu mensaje:\n\n"${message}"\n\nNos pondremos en contacto contigo pronto.\n\nSaludos,\n[Tu Nombre]`,  // Contenido del correo de confirmación
+        text: `Hola ${name},\n\nHe recibido tu mensaje:\n\n"${message}"\n\nMe pondré en contacto contigo pronto.\n\nSaludos,\nNicolás Peña Mogollón`,  // Contenido del correo de confirmación
     };
 
     // Enviar el correo principal y manejar errores y respuestas
